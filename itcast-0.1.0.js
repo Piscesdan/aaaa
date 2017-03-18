@@ -161,7 +161,24 @@
   } );
 
 
- 
+  //DOM操作模块
+  itcast.fn.extend( {
+   appendTo: function( target ){
+      var target = itcast( target ),   //统一target类型  为itcast对象 
+          ret = [],  //存储所有分配出去的节点
+          node,      //临时存储要被分配的节点
+          that = this;  
+      target.each( function( i, elem ){
+        that.each( function(){
+          node = i === 0 ? this: this.cloneNode( true );
+          ret.push( node );
+          elem.appendChild( node );
+        });
+      });
+      //实现链式编程
+      return itcast ( ret )
+   },
+  } ); 
   if ( typeof define === 'function' ){
     define( function (){
       return itcast;

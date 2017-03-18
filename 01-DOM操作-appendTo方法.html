@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            .pp {
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+    	<div id="dd"></div>
+    	<div id="dd"></div>
+    	<!-- <script src="jquery.js"></script> -->
+    	<script src="itcast-0.1.0.js"></script>
+    	<script>
+
+    		/*var iq=$('<p>123</p>').appendTo('div');
+    		console.log(iq);*/
+
+            $.fn.addClass = function( className ){
+                this.each( function( i, elem ){
+                    elem.className += '' + className;
+                });
+
+                return this;
+            };
+
+            var iq=$('<p>123</p>').appendTo( document.querySelectorAll('div' )).addClass( 'pp' );
+            console.log(iq);
+    	</script>
+    </body>
+</html>

@@ -176,8 +176,13 @@
         });
       });
       //实现链式编程
-      return itcast ( ret )
+      return itcast ( ret );
    },
+   append: function( source ){
+      source = itcast( source );
+      source.appendTo( this );
+      return this;
+   }
   } ); 
   if ( typeof define === 'function' ){
     define( function (){
